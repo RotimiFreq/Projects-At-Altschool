@@ -1,5 +1,12 @@
 let count = 0
 
+let welcom = document.getElementById("welcome")
+
+let name = "Oluwarotimi samuel"
+let greetings = "Welcome back!"
+
+welcom.innerText = greetings + name
+
 let counter = document.getElementById("counter")
 
 function increment() {
@@ -11,6 +18,11 @@ function increment() {
 
 }
 
+
+
 function save() {
-    console.log(count)
+    let savevalue = document.getElementById("savevalue")
+    let dash = "-"
+    let sv = count + dash
+    savevalue.innerText += sv
 }
