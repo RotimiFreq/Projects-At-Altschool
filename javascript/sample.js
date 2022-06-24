@@ -22,7 +22,7 @@ function increment() {
 
 function save() {
     let savevalue = document.getElementById("savevalue")
-    let dash = "-"
+    let dash = " - "
     let sv = count + dash
-    savevalue.innerText += sv
+    savevalue.textContent += sv
 }
