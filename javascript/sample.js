@@ -12,7 +12,8 @@ let counter = document.getElementById("counter")
 function increment() {
     count = count + 1
     console.log("the button was clicked")
-    counter.innerText = count
+    counter.textContent = count
+
 
 
 
@@ -25,4 +26,6 @@ function save() {
     let dash = " - "
     let sv = count + dash
     savevalue.textContent += sv
+    counter.textContent = 0
+    count = 0
 }
