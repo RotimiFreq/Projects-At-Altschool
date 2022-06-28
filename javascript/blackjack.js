@@ -1,23 +1,20 @@
-// collecting the details of the user 
-
-let v = "sam"
-
-function postdetails() {
-    console.log("v")
+function getdeetails() {
+    let uname1 = document.getElementById("playername")
+    Usersname = uname1.value
+    let deposit = document.getElementById("deposit")
+    playerdeposit = deposit.value
+    console.log(Usersname, playerdeposit)
 }
 
+function gamepage() {
+    window.location.href = "./gameBJ.html"
+
+
+}
 
 function firstfunc() {
-    window.location.href = "./gameBJ.html"
-    postdetails()
-
+    getdeetails()
+    sessionStorage.setItem("PlayerName", Usersname)
+    sessionStorage.setItem("Deposit", playerdeposit)
+    gamepage()
 }
-
-
-// var playername = document.getElementById("playername").value
-// var Deposit = document.getElementById("playerdep").value
-
-// // once details gotten, post it to game page
-
-
-// console.log(v)
