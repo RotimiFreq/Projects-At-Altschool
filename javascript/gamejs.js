@@ -1,14 +1,17 @@
+// getting the data stored from the homepage
+
 postedname = sessionStorage.getItem("PlayerName")
 posteddeposit = sessionStorage.getItem("Deposit")
 
-
+// retrieving the data and storing it in a variable
 let theName = document.getElementById("welc")
 theName.textContent = "Welcome" + " " + postedname + "!"
 
 let thedeposit = document.getElementById("balance")
 thedeposit.textContent = "Balance" + ":" + " " + "$" + posteddeposit
 
-//the stake
+//a function  stake() to get the amount the player want stake
+// and also update the balance after the stake as been made
 
 function stake() {
     let getStake = document.getElementById("stakein")
@@ -17,10 +20,14 @@ function stake() {
     let displayStake = document.getElementById("stake")
     displayStake.textContent = " Stake :" + " " + "$" + stakeValue
 
+    //converting the string saved in session storage to numbers
+
     depositInt = parseInt(posteddeposit)
     stakeint = parseInt(stakeValue)
 
     balanceAfterStake = depositInt - stakeint
+
+    // updating the balance
 
     let thedeposit = document.getElementById("balance")
     thedeposit.textContent = "Balance" + ":" + " " + "$" + balanceAfterStake
@@ -30,17 +37,22 @@ function stake() {
 
 }
 
+// declaring some global variables 
+
 let isAlive = true
 let hasBlackJack = false
 let cardArray = []
 let message = ""
 
+
+// the randcard() generates random number which represents our card
 function randcard() {
-    card = Math.random() * 13
+    card = Math.random() * 10
     randomcard = Math.floor(card) + 1
     return randomcard
 }
 
+// get the first 2 cards anf push them into an array and also returns the sum
 
 function rendergame() {
     firstCard = randcard()
@@ -51,6 +63,8 @@ function rendergame() {
     return sum
 
 }
+
+// init the sum here and we can start playing the game
 let sumToUsed = rendergame()
 
 function startgame() {
@@ -75,9 +89,10 @@ function startgame() {
     }
 
     getcard = document.getElementById("card")
-
+    getcard.textContent = "Cards :"
+        // use the for loop to logout the data in the array
     for (i = 0; i < cardArray.length; i++) {
-        getcard.textContent += "Cards" + ":" + cardArray[i]
+        getcard.textContent += cardArray[i] + " "
         console.log(cardArray[i])
 
     }
@@ -88,18 +103,24 @@ function startgame() {
     dispMsg = document.getElementById("message")
     dispMsg.textContent = message
 
+    // the cashout logic to update balance
+    if (hasBlackJack === true) {
+        cashWon = stakeint * 1.5
+        thedeposit.textContent = "Balance" + ":" + " " + "$" + cashWon
 
-    console.log(cardArray)
-    console.log(sumToUsed)
-    console.log(message)
+    }
+    if (isAlive === false && hasBlackJack === false) {
+        cashLoss = depositInt - stakeint
+        thedeposit.textContent = "Balance" + ":" + " " + "$" + cashLoss
+
+
+    }
+
+
+
 }
 
-if (isAlive === false && hasBlackJack === false) {
-    message2 = "stake again to start new game"
-    console.log(message2)
-}
-
-
+// logic to get new cards
 
 function newcard() {
 
