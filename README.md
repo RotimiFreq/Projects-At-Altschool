@@ -1,5 +1,5 @@
 # Projects-At-Altschool
-Projects and assignment that I did during my One-year software engineering course at AltschoolAfrica
+Projects and assignment that I did in first semester of software engineering diploma at altschool africa
 
 Conpleted my assignment by creating a simple static website
 
